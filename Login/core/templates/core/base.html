@@ -8,10 +8,18 @@
 <body>
     <h2>Inicio</h2>
     <ul>
-        <li><a href={% url 'home' %}>Inicio</a></li>
-        <li><a href={% url 'transaction_view'%}></a>Lista de BlockChain</li>
-        <li><a href="">Ingresar</a></li>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'transaction_view' %}">Lista de BlockChain</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'exit' %}">Salir</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Ingresar</a></li>
+        {% endif %}
     </ul>
-    
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>
