@@ -1,0 +1,31 @@
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #007bff; /* Un tono de azul */
+    overflow: hidden;
+}
+
+/* Estilos para los elementos de la lista */
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para cada ítem del menú */
+.nav-item {
+    float: left;
+}
+
+/* Estilos para los enlaces dentro del menú */
+.nav-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Cambio de color al pasar el ratón sobre el ítem */
+.nav-item a:hover {
+    background-color: #0056b3; /* Un azul más oscuro */
+}
