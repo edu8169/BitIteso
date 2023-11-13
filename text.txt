@@ -1,0 +1,30 @@
+Login/
+|-- manage.py
+|-- Login/
+|   |-- __init__.py
+|   |-- settings.py
+|   |-- urls.py
+|   |-- asgi.py
+|   `-- wsgi.py
+    | -- __pycache__/
+        '-- ...
+|-- core/
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- migrations/
+|   |   `-- ...
+|   |-- models.py
+|   |-- tests.py
+|   |-- urls_proyect.py
+|   `-- views.py
+|-- templates/
+|   |-- core/
+|   |   |-- base.html
+|   |   |-- home.html
+|   |   |-- transaction_view.html
+|   |-- registration/
+        |-- login.html
+|-- static/
+|   `-- ...
+`-- db.sqlite3
