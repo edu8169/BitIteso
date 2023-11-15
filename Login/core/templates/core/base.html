@@ -1,65 +1,61 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BitIIteso</title>
-    <!-- <link rel="stylesheet" href="{% static 'css/estilos.css' %}">Asegúrate de actualizar la ruta -->
-    <style>
-        /* Estilos para la barra de navegación */
-.navbar {
-    background-color: #007bff; /* Un tono de azul */
-    overflow: hidden;
-}
-
-/* Estilos para los elementos de la lista */
-.nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilos para cada ítem del menú */
-.nav-item {
-    float: left;
-}
-
-/* Estilos para los enlaces dentro del menú */
-.nav-item a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Cambio de color al pasar el ratón sobre el ítem */
-.nav-item a:hover {
-    background-color: #0056b3; /* Un azul más oscuro */
-}
-
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Aplicación</title>
 </head>
-
 <body>
-    <!-- Barra de Navegación -->
-    <div class="navbar">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="{% url 'home' %}">Inicio</a></li>
-            <li class="nav-item"><a href="{% url 'transaction_view' %}">Lista de BlockChain</a></li>
-            {% if request.user.is_authenticated %}
-                <li class="nav-item"><a href="{% url 'exit' %}">Salir</a></li>
-            {% else %}
-                <li class="nav-item"><a href="{% url 'login' %}">Ingresar</a></li>
-            {% endif %}
-        </ul>
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href={% url 'home' %}>Iteso Coin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href={% url 'home' %}>Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'transaction_view' %}>Blockchain</a>
+                </li>
+
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'logout' %}>Salir</a>
+                    </li>
+
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'login' %}>Ingresar</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'register' %}>Registrarse</a>
+                    </li>
+
+                {% endif %}
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
+        <h2>Inicio</h2>
+
+
+    {% block content %}{% endblock %}
+        
     </div>
 
-    <!-- Contenido Principal -->
-    <div id="content">
-        {% block content %}
-        {% endblock %}
-    </div>
+    
+    
 </body>
 </html>
