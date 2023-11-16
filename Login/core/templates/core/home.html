@@ -1,10 +1,51 @@
 {% extends 'core/base.html' %}
+{% load static %}
 {% block content %}
-<h3>Landin page</h3>
-{% if request.user.is_authenticated %}
-    <hr>
-    <h4>
-        {{ user.username | upper}}
-    </h4>
-{% endif %}
+    <div class="container">
+        <div class="user-welcome">
+            {% if request.user.is_authenticated %}
+            <hr>
+            <h4>
+                Bienvenid@ {{ user.username | upper }}
+            </h4>
+            <hr>
+            {% endif %}
+
+        </div>
+    
+        <div class="header-content">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+            <h1>ITESO COIN</h1>
+        </div>
+        <hr>
+
+        <section class="features">
+           <div class="feature">
+               <h2>Seguro y Descentralizado</h2>
+               <p>Utilizamos la tecnología blockchain para garantizar la seguridad y descentralización de tus activos.</p>
+           </div>
+           <div class="feature">
+               <h2>Rápido y Eficiente</h2>
+               <p>Nuestra plataforma ofrece transacciones rápidas y eficientes gracias a la tecnología de criptomoneda avanzada.</p>
+           </div>
+           <div class="feature">
+               <h2>Acceso Universal</h2>
+               <p>Accede a tu dinero en cualquier momento y lugar. Sin restricciones geográficas ni horarios.</p>
+           </div>
+       </section>
+   
+       {% if not request.user.is_authenticated %}
+        <section class="call-to-action">
+            <h2>Únete hoy</h2>
+            <p>Descubre el futuro de las finanzas con nuestra criptomoneda. ¡Únete a nosotros ahora!</p>
+            <a href="/register" class="cta-button">Regístrate</a>
+        </section>
+       {% endif %}
+       
+
+        
+     </div>
+
+    
+    
 {% endblock %}

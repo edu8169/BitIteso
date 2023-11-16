@@ -1,10 +1,66 @@
 {% extends 'core/base.html' %}
 {% block content %}
-<h3>Blockchain</h3>
-<p>Producto 1</p>
-<p>Producto 2</p>
-<p>Producto 3</p>
-<p>Producto 4</p>
-<p>Producto 5</p>
-<p>Producto 6</p>
+<div class="container">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard">
+            <h2>Últimos Bloques</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha y hora</th>
+                        <th>Número de Transacciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>816962</td>
+                        <td>2023-11-15 21:25:58</td>
+                        <td>3984</td>
+                    </tr>
+                    <tr>
+                        <td>816958</td>
+                        <td>2023-11-15 19:56:25</td>
+                        <td>4386</td>
+                    </tr>
+                    <tr>
+                        <td>816959</td>
+                        <td>2023-11-15 20:39:24</td>
+                        <td>2785</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="dashboard">
+            <h2>Últimas Transacciones</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>741f955098f1141f671e333dcacdb0282cdaa3787918d6efdbd8fc16081c06aa</td>
+                        <td>0.00027566 ITC</td>
+                    </tr>
+                    <tr>
+                        <td>2198bbbcb90e394cd8d9494305b479a60eda286bada911d333c54e146c11a788</td>
+                        <td>0.00100998 ITC</td>
+                    </tr>
+                    <tr>
+                        <td>3ea989b23bfdd497b57ecb69ff6a565cc32136b211404ac0b9241fa3eabfae43</td>
+                        <td>0.00028388 ITC</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}
