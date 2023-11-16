@@ -28,3 +28,6 @@ Login/
 |-- static/
 |   `-- ...
 `-- db.sqlite3
+
+edunavar
+motorola8169
