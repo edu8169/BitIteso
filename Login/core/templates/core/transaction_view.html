@@ -1,10 +1,68 @@
 {% extends 'core/base.html' %}
 {% block content %}
-<h3>Blockchain</h3>
-<p>Producto 1</p>
-<p>Producto 2</p>
-<p>Producto 3</p>
-<p>Producto 4</p>
-<p>Producto 5</p>
-<p>Producto 6</p>
+
+<div class="container">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard">
+            <h2>Últimos Bloques</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hash del Bloque</th>
+                        <th>Hash Anterior</th>
+                        <th>Prueba</th>
+                        <th>Fecha y Hora</th>
+                        <th>Número de Transacciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for block in datos.chain %}
+                    <tr>
+                        <td>{{ block.hash }}</td>
+                        <td>{{ block.previous_hash }}</td>
+                        <td>{{ block.proof }}</td>
+                        <td>{{ block.timestamp }}</td>
+                        <td>{{ block.transactions|length }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        
+        <div class="container">
+            <!-- ... contenido anterior ... -->
+        
+            <div class="dashboard">
+                <h2>Últimas Transacciones</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Monto</th>
+                            <th>Destino</th>
+                            <th>Origen</th>
+                            <th>Hash del Bloque</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for block in datos.chain %}
+                            {% for transaction in block.transactions %}
+                                {% if transaction.amount %}
+                                    <tr>
+                                        <td>{{ transaction.amount }}</td>
+                                        <td>{{ transaction.destiny }}</td>
+                                        <td>{{ transaction.origin }}</td>
+                                        <td>{{ block.hash }}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+</div>
 {% endblock %}
